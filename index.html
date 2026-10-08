@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#f6f5ee"><title>团团 · 浏览器里的陪伴宠物</title><meta name="description" content="一只住在浏览器里的小宠物。摸摸头、分享小饼干、一起专注，把陪伴的小片刻收好。">
+ <link rel="icon" href="pet.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+ <script src="app.js" defer></script>
+</head>
+<body>
+<svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+ <symbol id="paw" viewBox="0 0 24 24"><path d="M8 14c-1 2-4 4-2 6s4-1 6-1 4 3 6 1-1-4-2-6c-2-3-6-3-8 0Z"/><ellipse cx="4" cy="9" rx="2" ry="3"/><ellipse cx="9" cy="5" rx="2" ry="3"/><ellipse cx="15" cy="5" rx="2" ry="3"/><ellipse cx="20" cy="9" rx="2" ry="3"/></symbol>
+ <symbol id="book" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM9 3v18M13 8h3M13 12h3"/></symbol>
+ <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21S2 15 2 8c0-5 7-6 10-1 3-5 10-4 10 1 0 7-10 13-10 13Z"/></symbol>
+ <symbol id="settings" viewBox="0 0 24 24"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3"/></symbol>
+ <symbol id="screen" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+ <symbol id="sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5ZM15 8q5 4 0 8M18 4q10 8 0 16"/></symbol>
+ <symbol id="food" viewBox="0 0 24 24"><path d="M3 12h18c-1 7-4 9-9 9s-8-2-9-9ZM8 7q-3-3 0-5M13 8q-3-3 0-5M18 7q-3-3 0-5"/></symbol>
+ <symbol id="hand" viewBox="0 0 24 24"><path d="M8 12V6a2 2 0 0 1 4 0v5-7a2 2 0 0 1 4 0v7-5a2 2 0 0 1 4 0v9c0 5-3 7-7 7-3 0-5-2-7-5l-3-4c-2-3 1-5 3-3Z"/></symbol>
+ <symbol id="spark" viewBox="0 0 24 24"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/></symbol>
+ <symbol id="moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 3a9 9 0 1 0 11 12Z"/></symbol>
+ <symbol id="send" viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8ZM11 13 21 3"/></symbol>
+ <symbol id="leaf" viewBox="0 0 24 24"><path d="M4 20C1 9 7 3 21 3c0 13-7 18-17 17ZM4 20 16 8"/></symbol>
+ <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+ <symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+ <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+</defs></svg>
+<div class="app-shell">
+ <aside class="sidebar">
+  <a class="brand" href="#home"><span class="brand-mark"><svg><use href="#paw"/></svg></span><span>团团<small>TUAN TUAN</small></span></a>
+  <div class="side-label">我们的日常</div>
+  <nav aria-label="主导航">
+   <button class="nav-item active" data-view="home"><svg><use href="#paw"/></svg>我的团团<span class="nav-dot"></span></button>
+   <button class="nav-item" data-view="diary"><svg><use href="#book"/></svg>陪伴日记</button>
+   <button class="nav-item" data-view="memory"><svg><use href="#heart"/></svg>小小记忆</button>
+  </nav>
+  <div class="side-note"><span class="note-flower">✳</span><p>平凡的日子，<br>也值得被好好陪伴。</p><span>ONE LITTLE FRIEND.</span></div>
+  <div class="side-bottom"><button class="nav-item" id="settings-button"><svg><use href="#settings"/></svg>偏好设置</button><div class="local-note"><span></span>陪伴记录保存在本机</div></div>
+ </aside>
+ <main>
+  <header class="topbar"><div class="breadcrumb">我的小小世界 <span>/</span> <b id="page-name">我的团团</b></div><div class="top-actions"><button id="sound-button" class="icon-button" aria-label="开启互动音效" title="开启互动音效"><svg><use href="#sound"/></svg></button><button id="desktop-button" class="outline-button"><svg><use href="#screen"/></svg>小窗模式</button></div></header>
+  <section id="home-view" class="view">
+   <div class="greeting"><div><div class="eyebrow"><span></span> A LITTLE COMPANY, EVERY DAY</div><h1>今天也一起慢慢过<span>。</span></h1><p id="greeting-sub">团团已经准备好，陪你度过今天的小片刻。</p></div><div class="date-stamp"><span id="weekday">星期四</span><b id="today-date">10 月 08 日</b><small>相遇的第 <span id="days-together">1</span> 天</small></div></div>
+   <div class="primary-grid">
+    <section class="pet-card" aria-label="团团的房间">
+     <div class="pet-card-head"><div><span class="tiny-label">YOUR LITTLE COMPANION</span><h2 id="pet-name">团团 <span class="name-badge">奶油团子</span></h2></div><span class="mood-pill"><span></span><span id="mood-text">心情晴朗</span></span></div>
+     <div class="scene" id="scene">
+      <div class="window-scene" aria-hidden="true"><div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="window-cross"></div></div>
+      <div class="plant" aria-hidden="true"><i></i><i></i><i></i><span></span></div>
+      <div class="scene-star star-one" aria-hidden="true">✦</div><div class="scene-star star-two" aria-hidden="true">✧</div>
+      <div class="pet-bubble" id="pet-bubble" role="status">你来啦，我给你留了个位置。</div>
+      <button class="pet-touch" id="pet-touch" aria-label="摸摸团团">
+       <svg class="pet-art" viewBox="0 0 360 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="奶油色、圆滚滚的原创宠物团团">
+        <defs><radialGradient id="fur" cx=".38" cy=".23" r=".85"><stop stop-color="#fff6e7"/><stop offset=".65" stop-color="#f4ddbf"/><stop offset="1" stop-color="#d8b497"/></radialGradient><linearGradient id="ear" x2="0" y2="1"><stop stop-color="#f6dec5"/><stop offset="1" stop-color="#e3b2a0"/></linearGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#493c28" flood-opacity=".14"/></filter></defs>
+        <ellipse class="pet-ground" cx="180" cy="280" rx="108" ry="13" fill="#645f49" opacity=".12"/>
+        <g class="pet-body"><g filter="url(#shadow)">
+         <g class="left-ear"><path d="M95 147C62 119 71 49 100 46C127 46 146 93 143 124Z" fill="url(#fur)" stroke="#e2c3a5" stroke-width="2"/><path d="M107 115C89 94 89 65 101 62C114 65 127 95 125 118Z" fill="url(#ear)"/></g>
+         <g class="right-ear"><path d="M219 124C213 95 232 47 259 48C287 51 295 120 262 148Z" fill="url(#fur)" stroke="#e2c3a5" stroke-width="2"/><path d="M237 116C236 94 248 65 260 65C273 70 272 98 254 119Z" fill="url(#ear)"/></g>
+         <path d="M90 162C93 119 126 98 180 99C236 100 268 124 273 167C292 213 276 268 237 277C209 289 153 290 124 277C82 268 65 213 90 162Z" fill="url(#fur)" stroke="#e4c7a9" stroke-width="2"/>
+         <path class="left-hand" d="M103 211C83 213 75 241 93 248C105 252 117 233 122 223" fill="#f2ddc2" stroke="#e4c7a9" stroke-width="2"/><path d="M257 211C278 215 284 239 268 247C255 252 243 234 239 224" fill="#efd5b8" stroke="#e4c7a9" stroke-width="2"/>
+         <ellipse cx="143" cy="275" rx="22" ry="10" fill="#e9cbaa"/><ellipse cx="220" cy="275" rx="22" ry="10" fill="#e9cbaa"/><ellipse cx="180" cy="240" rx="49" ry="32" fill="#fff5e6" opacity=".5"/>
+        </g>
+        <g class="eyes-open"><g fill="#433b32"><ellipse cx="142" cy="178" rx="8" ry="11"/><ellipse cx="218" cy="178" rx="8" ry="11"/></g><g fill="#fff9eb"><circle cx="139" cy="175" r="2.3"/><circle cx="215" cy="175" r="2.3"/></g></g>
+        <g class="eyes-closed" fill="none" stroke="#66503f" stroke-width="4" stroke-linecap="round"><path d="M133 180q9-10 18 0M209 180q9-10 18 0"/></g>
+        <g class="eyes-sleep" fill="none" stroke="#66503f" stroke-width="4" stroke-linecap="round"><path d="M133 178q9 8 18 0M209 178q9 8 18 0"/></g>
+        <g class="cheeks" fill="#e3a39c" opacity=".65"><ellipse cx="117" cy="199" rx="14" ry="8"/><ellipse cx="242" cy="199" rx="14" ry="8"/></g>
+        <path d="M174 193Q180 189 186 193Q187 199 180 202Q173 199 174 193" fill="#bd8e7b"/><path d="M180 202Q175 213 168 207M180 202Q185 213 192 207" fill="none" stroke="#66503f" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M171 108Q179 86 192 106" fill="#fff1dc"/>
+        </g>
+       </svg>
+      </button>
+      <div class="sleep-z" aria-hidden="true">z z Z</div><div class="particles" id="particles" aria-hidden="true"></div>
+      <button class="firefly" id="firefly" hidden aria-label="抓住萤火虫">✦</button>
+      <div class="scene-caption" id="scene-caption">轻轻点一下，摸摸它的脑袋</div>
+     </div>
+     <div class="pet-stats"><div><span>亲密度 <b id="affection-number">12</b></span><div class="stat-track"><i id="affection-bar"></i></div></div><div><span>饱腹感 <b id="fullness-number">70</b></span><div class="stat-track peach"><i id="fullness-bar"></i></div></div><div><span>精力 <b id="energy-number">85</b></span><div class="stat-track gold"><i id="energy-bar"></i></div></div></div>
+     <div class="pet-actions"><button id="pat-button"><svg><use href="#hand"/></svg>摸摸头</button><button id="feed-button"><svg><use href="#food"/></svg>喂点好吃的</button><button id="play-button"><svg><use href="#spark"/></svg>玩一会儿</button><button id="sleep-button"><svg><use href="#moon"/></svg><span>打个盹</span></button></div>
+    </section>
+    <section class="chat-card" aria-label="和团团聊天"><div class="chat-head"><div class="chat-avatar"><svg><use href="#paw"/></svg></div><div><h2>和团团说说话</h2><span id="chat-status">互动体验模式 · 本地预设回应</span></div><span class="chat-online"></span></div><div class="chat-messages" id="chat-messages" role="log" aria-label="聊天记录" aria-live="polite"></div><div class="chat-bottom"><div class="quick-prompts"><button data-prompt="今天有点累">今天有点累</button><button data-prompt="陪我学习吧">陪我学习吧</button><button data-prompt="讲个小故事">讲个小故事</button></div><form id="chat-form"><label class="sr-only" for="chat-input">给团团发消息</label><textarea id="chat-input" rows="1" maxlength="2000" placeholder="把今天的小事告诉团团…"></textarea><button id="send-button" type="submit" aria-label="发送消息"><svg><use href="#send"/></svg></button></form><p class="chat-footnote" id="mode-note">接入 AI 后，可以自由对话。<button id="connect-shortcut">去连接 <span>↗</span></button></p></div></section>
+   </div>
+   <div class="secondary-grid"><section class="moments-card"><div class="section-head"><div><span class="tiny-label">LITTLE MOMENTS</span><h2>把小片刻收好</h2></div><button id="all-diary" class="text-button">全部日记 <svg><use href="#arrow"/></svg></button></div><div class="moment-list" id="recent-moments"></div></section><section class="focus-card"><div class="focus-top"><span><svg><use href="#leaf"/></svg>一起专注</span><label><span class="sr-only">专注时长</span><select id="focus-duration"><option value="25">25 分钟</option><option value="15">15 分钟</option><option value="5">5 分钟</option></select></label></div><div class="focus-middle"><div><b id="timer-text">25:00</b><p id="focus-description">你认真做事，我安静陪着。</p></div><span class="focus-flower" aria-hidden="true">✳</span></div><button id="focus-button">开始一起专注 <span>→</span></button></section></div>
+   <footer class="page-footer"><span>不必时刻精彩，一起待着就很好。</span><span>TUAN TUAN · 01</span></footer>
+  </section>
+  <section id="diary-view" class="view" hidden><div class="view-title"><span class="eyebrow">OUR LITTLE DAYS</span><h1>陪伴日记</h1><p>那些一起度过的小片刻，都在这里。</p></div><div id="diary-list" class="diary-list"></div></section>
+  <section id="memory-view" class="view" hidden><div class="view-title"><span class="eyebrow">THINGS THAT MATTER</span><h1>小小记忆</h1><p>收好你想留下的小事。记忆仅在当前浏览器保存，可以随时查看或删除。</p></div><form id="memory-form" class="memory-form"><label for="memory-input">想让团团记住什么？</label><div><input id="memory-input" maxlength="200" placeholder="例如：我喜欢雨天，最近在准备设计作品集。" required><button class="primary-button">收进记忆</button></div></form><div id="memory-list" class="memory-list"></div></section>
+ </main>
+</div>
+<div class="widget-controls"><button id="widget-home" aria-label="打开团团的房间"><svg><use href="#screen"/></svg></button><span>团团</span><button id="widget-close" aria-label="关闭桌宠窗口"><svg><use href="#close"/></svg></button></div>
+<dialog id="settings-dialog" aria-labelledby="settings-title"><div class="dialog-head"><div><span class="tiny-label">MAKE IT YOURS</span><h2 id="settings-title">团团的偏好设置</h2></div><button id="close-settings" class="icon-button" aria-label="关闭设置"><svg><use href="#close"/></svg></button></div><div class="settings-section"><label for="nickname-input">团团怎么称呼你</label><div class="inline-field"><input id="nickname-input" maxlength="30" placeholder="你的昵称"><button id="save-nickname" class="outline-button">保存</button></div></div><div class="settings-section"><h3>关于这个小世界</h3><p>当前聊天使用本地预设回应，可以试试「今天有点累」「陪我学习吧」「讲个小故事」。互动、小游戏、计时和记录可以直接使用。</p><p>小窗模式会打开浏览器窗口。透明、置顶桌宠需要使用 Windows 版本。</p><p>日记、昵称和记忆仅保存在当前浏览器，不会分享给其他访客。</p></div><div class="settings-footer">专注、日记和小小记忆仅保存在当前设备。聊天为预设回应体验。</div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>
